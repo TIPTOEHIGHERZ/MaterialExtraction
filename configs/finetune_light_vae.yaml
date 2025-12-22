@@ -1,0 +1,21 @@
+train_config:
+  batch_size: 4
+  epochs: 22000
+  lr: 0.000001
+  device: cuda
+  # ckpt_dir: 
+
+  summon_ckpt: true
+  accumulation_steps: 2
+  save_period: 1000
+  max_saves: 5
+
+eval_config:
+  lr: 0.000001
+  eval_period: 6
+  batch_size: 1
+
+log_config:
+  log_dir: light_vae
+  log_period_loss: 20
+  log_period_visual: 500

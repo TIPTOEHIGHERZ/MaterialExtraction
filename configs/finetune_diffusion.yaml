@@ -1,0 +1,6 @@
+epochs: 1000
+device: cuda
+batch_size: 16
+save_period: 5
+lr: 0.00001
+ckpt_dir: checkpoints/lora/train_0

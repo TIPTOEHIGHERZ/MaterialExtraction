@@ -1,0 +1,14 @@
+device: cuda
+device_id: 0
+num_inference_steps: 50
+stable_diffusion_ckpt: ./pretrained/stable-diffusion-v1-4
+clip_vision_transformer_ckpt: ./pretrained/clip-vit-large-patch14
+# embedding_matcher_ckpt: ./checkpoints/embedding_matcher/embedding_matcher_33.ckpt
+# lora_ckpt: ./checkpoints/lora/lora_33.ckpt
+embedding_matcher_ckpt: ./checkpoints/finetuned/embedding_matcher/embedding_matcher_20000_4999.ckpt
+lora_ckpt: ./checkpoints/finetuned/lora/lora_20000_4999.ckpt
+augment_ckpt: ./checkpoints/finetuned/augmentor/augmentor_20000_4999.ckpt
+
+# embedding_matcher_ckpt: ./checkpoints/save/embedding_matcher_only_text.ckpt
+# lora_ckpt: ./checkpoints/save/lora_only_text.ckpt
+# augment_ckpt: ./checkpoints/save/augmentor_only_text.ckpt

@@ -1,0 +1,30 @@
+train_config:
+  batch_size: 8
+  epochs: 22000
+  lr: 0.000001
+  device: cuda
+  # ckpt_dir: ./checkpoints/render_siamese_normal/last
+  # ckpt_dir: ./checkpoints/render_siamese_all/base_1
+  # ckpt_dir: ./checkpoints/render_siamese_light/last_1
+
+  summon_ckpt: true
+  accumulation_steps: 1
+  save_period: 1000
+  max_saves: 5
+
+eval_config:
+  lr: 0.000001
+  eval_period: 6
+  batch_size: 2
+
+log_config:
+  log_dir: align
+  log_period_loss: 20
+  log_period_visual: 500
+
+test_config:
+  batch_size: 1
+  num_samples: 8
+
+  log_period_visual: 500
+  log_period_loss: 100

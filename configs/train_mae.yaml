@@ -1,0 +1,6 @@
+epochs: 10000
+device: cuda
+batch_size: 64
+save_period: 5
+lr: 0.00001
+ckpt_dir: checkpoints/embedding_matcher_new/train_310

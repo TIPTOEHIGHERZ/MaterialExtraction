@@ -1,0 +1,33 @@
+{
+    "search.exclude": {
+    "datasets": true,
+    "pretrained": true,
+    "runs": true
+  },
+
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true,
+    // "**/datasets": true 
+  },
+
+  "python.analysis.exclude": [
+    "datasets",
+    "pretrained",
+    "runs",
+  ],
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/.hg/store/**": true,
+    "./datasets": true,
+    "./pretrained": true,
+    "./runs": true,
+  },
+  "python-envs.defaultEnvManager": "ms-python.python:conda",
+  "python-envs.defaultPackageManager": "ms-python.python:conda",
+  "python-envs.pythonProjects": []
+}
