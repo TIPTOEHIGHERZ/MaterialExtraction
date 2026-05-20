@@ -16,7 +16,7 @@ The Poly Haven material extraction evaluation set is available on Hugging Face:
 
 This dataset is used to evaluate material extraction from a single input image and a user-provided mask. Each sample contains:
 
-- `image.png`: rendered/input image
+- `image.png`: input image
 - `mask.png`: binary mask
 - `albedo.png`: ground-truth diffuse/albedo map
 - `normal_gl.png`: OpenGL normal map
