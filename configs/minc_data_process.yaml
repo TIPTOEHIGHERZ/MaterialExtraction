@@ -1,5 +1,0 @@
-module_name: utils.datasets
-class_name: MincLoader
-fp: './datasets/texture'
-relative_dir: 'minc-2500/images'
-batch_size: 32

@@ -1,5 +1,0 @@
-module_name: utils.datasets
-class_name: DTDLoader
-fp: './datasets/texture'
-relative_dir: 'dtd/images'
-batch_size: 32

@@ -1,5 +1,0 @@
-out_shape:
- - 512
- - 512
-stride: 512
-crop_size: 512

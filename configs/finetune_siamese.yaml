@@ -1,8 +1,0 @@
-epochs: 1000
-device: cuda
-batch_size: 4
-save_period: 10
-lr: 0.00001
-# finetune_image: test_files/myplan/6.jpg
-log_dir: siamese_single
-# ckpt_dir: checkpoints/lora/train_0
