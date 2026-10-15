@@ -1,0 +1,39 @@
+runtime:
+  verify_cleanup: true
+  disable_logging_callbacks: false
+  max_cuda_allocated_delta_mb: 256
+  worker_exit_timeout_seconds: 10
+
+stages:
+  albedo_normal:
+    config_file: ./configs/finetune_render_pretrained_albedo_normal.yaml
+    overrides:
+      condition_projection:
+        enabled: true
+        pretrained_path: ./pretrained/iid
+        shift: 0.8
+        depth_batch_size: 1
+      train_config:
+        max_steps: 100000
+        precision: "no"
+        resume_training: false
+        ckpt_dir: null
+      log_config:
+        log_dir: render_pretrained_two_stage_albedo_normal_100k
+
+  full_attr:
+    config_file: ./configs/finetune_render_pretrained_full_attr_warmstart.yaml
+    overrides:
+      condition_projection:
+        enabled: true
+        pretrained_path: ./pretrained/iid
+        shift: 0.8
+        depth_batch_size: 1
+      train_config:
+        max_steps: 100000
+        precision: "no"
+        resume_training: false
+        ckpt_dir: null
+        init_ckpt_dir: null
+      log_config:
+        log_dir: render_pretrained_two_stage_full_attr_100k

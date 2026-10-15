@@ -1,0 +1,17 @@
+Omegaconf==2.3.0
+requests==2.32.3
+pillow==10.4.0
+pyarrow==24.0.0
+kornia==0.7.4
+matplotlib==3.9.2
+opencv-python-headless==4.10.0.84
+beautifulsoup4==4.12.3
+torchdiffeq==0.2.5
+tqdm==4.66.5
+transformers==4.46.2
+accelerate==1.0.0
+scikit-learn==1.5.2
+selenium==4.27.1
+progressbar==2.5
+einops==0.8.0
+git+https://github.com/huggingface/diffusers

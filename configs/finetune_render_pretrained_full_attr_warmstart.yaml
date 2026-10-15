@@ -1,0 +1,78 @@
+data_config:
+  parquet_dir: ./datasets/parquet/render_result_matsynth_50_resized
+  image_names: [image, mask, meta_data]
+  fetch_attr: [Color, NormalGL, Height, Roughness]
+  num_workers: 16
+  prefetch_factor: 4
+  persistent_workers: false
+  pin_memory: true
+  shuffle_seed: 0
+  transform_group:
+    default: [Color, NormalGL, Height, Roughness]
+    no_transform: [image, mask]
+
+augment_config:
+  rotate90:
+    enabled: true
+    angles: [0, 90, 180, 270]
+  jitter:
+    enabled: true
+    range_deg: 5.0
+  align_rotation:
+    enabled: true
+  crop:
+    size: 352
+  mask_aug:
+    enabled: true
+    tps_scale: [0.1, 0.3]
+    tps_p: 0.8
+    occ_size: 512
+    hole_count:
+      small_max_tries: 4
+      large_max_tries: 2
+      brush_max_tries: 8
+    hole_size:
+      small_max: 0.5
+      large_max: 1.0
+      brush_min_width: 12
+      brush_max_width: 48
+    binarize_thresh: 0.5
+  photometric:
+    enabled: false
+
+unet_config:
+  root: ./configs/unet/render_full_attr_warmstart
+  config_main: config_main.json
+  config_ref: config_ref.json
+
+train_config:
+  batch_size: 16
+  max_steps: 100000
+  lr: 0.000002
+  device: cuda
+  resume_training: false
+  ckpt_dir: null
+  init_ckpt_dir: ./checkpoints/render_pretrained_albedo_normal_100k_2026-08-10-09-35-56/train_100000
+  summon_ckpt: true
+  accumulation_steps: 1
+  even_batches: false
+  save_period: 10000
+  max_saves: 5
+  torch_compile:
+    enabled: false
+    modules: [unet]
+    backend: inductor
+    mode: default
+    fullgraph: false
+    dynamic: null
+
+log_config:
+  log_dir: render_pretrained_full_attr_warmstart_100k
+  log_period_loss: 20
+  log_period_visual: 2000
+
+test_config:
+  batch_size: 8
+  num_samples: 2
+  log_period_visual: 2000
+  log_period_loss: 500

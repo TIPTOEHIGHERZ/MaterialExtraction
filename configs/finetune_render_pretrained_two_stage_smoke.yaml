@@ -1,0 +1,69 @@
+runtime:
+  verify_cleanup: true
+  disable_logging_callbacks: true
+  max_cuda_allocated_delta_mb: 256
+  worker_exit_timeout_seconds: 10
+
+stages:
+  albedo_normal:
+    config_file: ./configs/finetune_render_pretrained_albedo_normal.yaml
+    overrides:
+      data_config:
+        num_workers: 1
+        prefetch_factor: 2
+        persistent_workers: false
+      augment_config:
+        crop:
+          size: 128
+        ref_transform:
+          enabled: true
+          size: 128
+        mask_aug:
+          occ_size: 128
+      train_config:
+        batch_size: 1
+        max_steps: 1
+        precision: bf16
+        resume_training: false
+        ckpt_dir: null
+        summon_ckpt: false
+        accumulation_steps: 1
+        save_period: 1
+        max_saves: 1
+      log_config:
+        log_dir: render_pretrained_two_stage_smoke_albedo_normal
+      test_config:
+        batch_size: 1
+        num_samples: 1
+
+  full_attr:
+    config_file: ./configs/finetune_render_pretrained_full_attr_warmstart.yaml
+    overrides:
+      data_config:
+        num_workers: 1
+        prefetch_factor: 2
+        persistent_workers: false
+      augment_config:
+        crop:
+          size: 128
+        ref_transform:
+          enabled: true
+          size: 128
+        mask_aug:
+          occ_size: 128
+      train_config:
+        batch_size: 1
+        max_steps: 1
+        precision: bf16
+        resume_training: false
+        ckpt_dir: null
+        init_ckpt_dir: null
+        summon_ckpt: false
+        accumulation_steps: 1
+        save_period: 1
+        max_saves: 1
+      log_config:
+        log_dir: render_pretrained_two_stage_smoke_full_attr
+      test_config:
+        batch_size: 1
+        num_samples: 1
