@@ -6,7 +6,7 @@ Paper: [arXiv:2512.18312](https://arxiv.org/abs/2512.18312)
 
 ## Status
 
-We have released the evaluation dataset first. The training code, inference/evaluation scripts, and pretrained model weights are currently being organized and will be released in a subsequent update.
+The evaluation dataset and training code are now available.
 
 ## Dataset
 
@@ -28,9 +28,7 @@ The dataset files were normalized only for consistent browsing, downloading, and
 ## Release Plan
 
 - Evaluation dataset: released
-- Training code: coming soon
-- Inference and evaluation scripts: coming soon
-- Pretrained model weights: coming soon
+- Training code: released
 
 ## Citation
 
